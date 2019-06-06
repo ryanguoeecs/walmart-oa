@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import InfiniteScroll from 'react-infinite-scroll-component';
-import axios from 'axios';
-import SimpleExpansionPanel from './ExpansionPanel';
-import './App.css';
+import React, { Component } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
+import axios from "axios";
+import SimpleExpansionPanel from "./ExpansionPanel";
+import "./App.css";
 
 class App extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class App extends Component {
       hasMore: true,
       curPage: 1,
       pageNum: 1,
-      pageSize: 10
+      pageSize: 25
     };
   }
 
@@ -20,7 +20,7 @@ class App extends Component {
     let { pageNum, pageSize } = this.state;
     axios({
       url: `/walmart-oa/${pageNum}/${pageSize}`,
-      method: 'GET'
+      method: "GET"
     })
       .then(({ data }) => {
         if (data.products.length > 0) {
@@ -32,7 +32,7 @@ class App extends Component {
           this.setState({ hasMore: false });
         }
       })
-      .catch((e) => {
+      .catch(e => {
         console.log(e);
       });
   }
@@ -41,7 +41,7 @@ class App extends Component {
     let { pageNum, pageSize } = this.state;
     axios({
       url: `/walmart-oa/${pageNum}/${pageSize}`,
-      method: 'GET'
+      method: "GET"
     })
       .then(({ data }) => {
         if (data.products.length > 0) {
@@ -53,7 +53,7 @@ class App extends Component {
           this.setState({ hasMore: false });
         }
       })
-      .catch((e) => {
+      .catch(e => {
         console.log(e);
       });
   };
